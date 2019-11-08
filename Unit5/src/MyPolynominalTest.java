@@ -11,7 +11,26 @@ public class MyPolynominalTest {
 		System.out.println(p3);
 		System.out.println();
 		System.out.println(p3.evaluate(1));
-		MyPolynominal p5 = p3.add(p2);
+		
+		
+		System.out.println();
+		MyPolynominal p5 = new MyPolynominal(1.1, 2.2, 3.3);
+		MyPolynominal p6 = new MyPolynominal(1.1, 2.2, 0.0, 4.4, 5.5);
+		System.out.println(p5);
+		System.out.println(p6);
+		System.out.println();
+		System.out.println("___________________________________________");
+		System.out.println(p5.add(p6));
+		
+		System.out.println();
+		System.out.println();
+		
+		System.out.println(p5);
+		System.out.println(p6);
+		System.out.println();
+		System.out.println("___________________________________________");
+		System.out.println(p5.multiply(p6));
+
 	}
 
 }

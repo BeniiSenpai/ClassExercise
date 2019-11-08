@@ -61,17 +61,35 @@ public class MyPolynominal {
 		return suma;
 	}
 
+	public MyPolynominal add(MyPolynominal p) {
+		double[] newPoly, biggest, smallest;
+		if (coeffs.length > p.coeffs.length) {
+			biggest = coeffs;
+			smallest = p.coeffs;
+		} else {
+			biggest = p.coeffs;
+			smallest = coeffs;
+		}
+		newPoly = new double[biggest.length];
+
+		for (int i = 0; i < biggest.length; i++) {
+			newPoly[i] = biggest[i];
+		}
+		for (int i = 0; i < smallest.length; i++) {
+			newPoly[i] += smallest[i];
+		}
+		return new MyPolynominal(newPoly);
+	}
 	
-	 public MyPolynominal add(MyPolynominal p) {
-		 double[] addPoly;
-		 for (int i = 0; i < coeffs.length; i++) {
-			 double operation = coeffs[i] + p.coeffs[i];
-			 addPoly[i] = operation;
-		 }
-		 return 
-	 }
-
-
+	public MyPolynominal multiply(MyPolynominal p) {
+		double[] newPoly = new double [coeffs.length + p.coeffs.length - 1];
+		for (int i = 0; i<coeffs.length; i++) {
+			for (int j = 0; j<p.coeffs.length; j++) {
+				newPoly[i + j] = coeffs[i] * p.coeffs[j];
+			}
+		}
+		return new MyPolynominal(newPoly);
+	}
 	/*
 	public double multiply() {
 		for(int i=0; i<coeffs.length; i++) {
